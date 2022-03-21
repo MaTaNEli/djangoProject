@@ -12,4 +12,4 @@ class CitizenDetails(models.Model):
     LandLine = models.CharField(max_length=100)
     Phone = models.IntegerField()
     isInfected = models.BooleanField()
-    Conditions = models.CharField(max_length=100)
+    Conditions = models.CharField(max_length=100, blank=True)

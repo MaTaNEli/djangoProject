@@ -7,8 +7,6 @@ from django.http.response import JsonResponse
 from myApp.tests import checkInput
 from myApp.models import CitizenDetails
 from myApp.serializers import DepartmentSerializer
-from django.core.exceptions import ValidationError
-
 
 @api_view(['GET'])
 def getALL(request):
@@ -18,23 +16,18 @@ def getALL(request):
 
 @api_view(['GET'])
 def getByCity(request):
-    #citizens = CitizenDetails.objects.filter(BirthDay__range=["1997-01-01", "2011-01-31"])
-    #http://127.0.0.1:8000/city/?city=tel%20aviv
-    #http://127.0.0.1:8000/city/?city=jerusalem
     citizens = CitizenDetails.objects.filter(City=request.GET['city'])
     dep_ser = DepartmentSerializer(citizens, many=True)
     return JsonResponse(dep_ser.data, safe = False)
 
 @api_view(['GET'])
 def getByDOB(request):
-    #http://127.0.0.1:8000/dob/?first=1992-11-18&second=2000-05-15
     citizens = CitizenDetails.objects.filter(BirthDay__range=[request.GET['first'], request.GET['second']])
     dep_ser = DepartmentSerializer(citizens, many=True)
     return JsonResponse(dep_ser.data, safe = False)
 
 @api_view(['POST'])
 def addData(request):
-
     data1 = JSONParser().parse(request)
     message = checkInput(data1)
 
@@ -45,8 +38,10 @@ def addData(request):
     serializer = DepartmentSerializer(data = data1)
     if serializer.is_valid():
         serializer.save()
+        JsonResponse.status_code = 200
         return JsonResponse({"message": "User signed in successfully"}, safe = False)
    
     JsonResponse.status_code = 400
+    print(serializer.errors)
     return JsonResponse({"message": "There seems to be a problem with the program Please fill in the details again"}, safe = False)
 
