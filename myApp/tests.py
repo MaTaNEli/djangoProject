@@ -5,6 +5,7 @@ from datetime import datetime
 # Create your tests here.
 
 
+# Function to validate the data from the user
 def checkInput(data):
    message = ""
    if data['FirstName'] == "":

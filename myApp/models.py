@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+# Create your models of the DB table.
 class CitizenDetails(models.Model):
     Id = models.AutoField(primary_key=True)
     FirstName = models.CharField(max_length=100)
