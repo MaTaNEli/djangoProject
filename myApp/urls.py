@@ -6,5 +6,8 @@ urlpatterns = [
     path('', views.getALL),
     path('savedata/', views.addData),
     path('city/', views.getByCity),
-    path('dob/', views.getByDOB)
+    path('dob/', views.getByDOB),
+    path('dateexcel/', views.dateExport),
+    path('cityexcel/', views.cityExport),
+    path('allexport/', views.allDataExport)
 ]
