@@ -10,7 +10,7 @@ then to run the server all you need first is to:
 1. write on the terminal "pipenv shell"
 2. "python manage.py runserver"
 
-you have to do so because it run pipenv 
+you have to do so because it run virtual environment 
 without it it won't run.
 
 by: matan eliyahu
