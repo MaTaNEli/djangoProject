@@ -10,7 +10,6 @@ from myApp.serializers import DepartmentSerializer
 from django.http import HttpResponse
 import xlwt
 
-
 #==================================================================================================
 # The rout for expoert the data by birth dates
 @api_view(['GET'])
