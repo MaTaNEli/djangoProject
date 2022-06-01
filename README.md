@@ -13,4 +13,8 @@ then to run the server all you need first is to:
 you have to do so because it run virtual environment 
 without it it won't run.
 
+# connect to DB:
+in directory djangoProject/setting.py there is  DATABASES 
+and you need to put your local DB to connect to the DB
+
 by: matan eliyahu
