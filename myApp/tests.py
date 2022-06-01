@@ -20,7 +20,7 @@ def checkInput(data):
    elif data['City'] == "":
       message = "The City MUST be filled"
 
-   elif not data['ZipCode'].strip().isdigit():
+   elif data['ZipCode'] and not data['ZipCode'].strip().isdigit():
       message = "The Zip Code MUST be a number"
 
    elif not data['LandLine'].strip().isdigit():

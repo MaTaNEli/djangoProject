@@ -8,7 +8,7 @@ class CitizenDetails(models.Model):
     BirthDay = models.DateField()
     Address = models.CharField(max_length=100)
     City = models.CharField(max_length=100)
-    ZipCode = models.IntegerField()
+    ZipCode = models.IntegerField(null=True)
     LandLine = models.CharField(max_length=100)
     Phone = models.IntegerField()
     isInfected = models.BooleanField()
